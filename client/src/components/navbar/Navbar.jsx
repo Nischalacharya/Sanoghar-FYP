@@ -1,11 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
-import './Navbar.scss';
-import { ProfileDropdown } from './ProfileDropdown';
-import moon from '../../assets/moon.png';
-import sun from '../../assets/sun.png';
-import { useDispatch, useSelector } from 'react-redux';
-import { setTheme } from '../../redux/Index';
+import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+import "./Navbar.scss";
+import { ProfileDropdown } from "./ProfileDropdown";
+import moon from "../../assets/moon.png";
+import sun from "../../assets/sun.png";
+import { useDispatch, useSelector } from "react-redux";
+import { setTheme } from "../../redux/Index";
+import LightModeIcon from "@mui/icons-material/LightMode";
 
 const Navbar = () => {
   const [openProfile, setOpenProfile] = useState(false);
@@ -24,45 +25,65 @@ const Navbar = () => {
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
 
   return (
     <div>
       <nav>
-        <Link to='/' className='link'>
+        <Link to="/" className="link">
           <span>
             <span className="material-symbols-outlined">home</span>
             <p>Sanoghar</p>
           </span>
         </Link>
         <ul>
-          <li><Link className='link' to='/'>Home</Link></li>
+          <li>
+            <Link className="link" to="/">
+              Home
+            </Link>
+          </li>
           <li>About</li>
-          <li><Link to={'/map'} className='link'>Map</Link></li>
-          <li><Link className='link' to='/hostel'>Hostel</Link></li>
-          <li className='profile' ref={profileRef} onClick={() => setOpenProfile((prev) => !prev)}>
+          <li>
+            <Link to={"/map"} className="link">
+              Map
+            </Link>
+          </li>
+          <li>
+            <Link className="link" to="/hostel">
+              Hostel
+            </Link>
+          </li>
+          <li
+            className="profile"
+            ref={profileRef}
+            onClick={() => setOpenProfile((prev) => !prev)}
+          >
             {storage.user ? (
               <>
                 {storage.user.username}
                 {openProfile && <ProfileDropdown />}
               </>
             ) : (
-              <Link to='/login' className='link' onClick={() => setOpenProfile(false)}>
+              <Link
+                to="/login"
+                className="link"
+                onClick={() => setOpenProfile(false)}
+              >
                 Login
               </Link>
             )}
           </li>
-          <li className='toggle'>
+          <li className="toggle">
             <div onClick={() => toggleTheme()}>
-              {storage.theme === 'light-theme' ? (
+              {storage.theme === "light-theme" ? (
                 <img src={moon} alt="Moon Icon" />
               ) : (
-                <img src={sun} alt="Sun Icon" className="sun-icon" style={{ fill: "white" }} />
+                <LightModeIcon />
               )}
             </div>
           </li>

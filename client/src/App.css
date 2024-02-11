@@ -51,3 +51,8 @@
     --table-td: #f3eded;
     --table-title: #bbbfff;
 }
+
+.body{
+    margin-top: 5.2vh;
+    height: calc(100vh-5.2vh);
+}
