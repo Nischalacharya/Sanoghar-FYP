@@ -1,0 +1,212 @@
+.admin {
+    height: 100vh;
+    width: 100%;
+    background-color: var(--div-bg);
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+
+    .admin-dashboard {
+        height: 100vh;
+        position: fixed;
+        background-color: #ececec;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        left: 0;
+
+        .admin-logo {
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            i {
+                font-size: 3rem;
+            }
+
+            p {
+                margin-top: 0.6rem;
+                font-weight: bold;
+            }
+        }
+
+        .dashboard-link {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+
+            div {
+                height: 2.2rem;
+                width: auto;
+                padding: 0.5rem;
+                justify-content: center;
+                align-items: center;
+                display: flex;
+                border-radius: 0.2rem;
+                cursor: pointer;
+
+                i {
+                    padding-right: 0.3rem;
+                }
+            }
+
+            .approve-hostel.active {
+                background-color: #c0c0f5;
+            }
+
+            .manage-user.active {
+                background-color: #c0c0f5;
+            }
+        }
+    }
+
+    .dashboard-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100vh;
+        width: 100%;
+
+        .manage-user {
+            padding-top: 1rem;
+            align-items: center;
+            background-color: var(--div-bg);
+            color: var(--text-color);
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            flex-direction: column;
+            width: 70rem;
+            margin-left: 10rem;
+
+            table {
+                width: 70%;
+
+                .manage-title {
+                    background-color: var(--table-title);
+                    height: 3rem;
+                }
+
+                .user-info {
+                    background-color: var(--table-td);
+                    height: 2.5rem;
+
+                    td {
+                        text-align: center;
+                    }
+
+                    .edit-delete {
+                        display: flex;
+                        gap: 2rem;
+                        justify-content: center;
+                        align-items: center;
+                        padding-top: 0.5rem;
+
+                        button {
+                            border: none;
+                        }
+
+                        .fa-solid {
+                            font-size: 1.1rem;
+                        }
+                    }
+                }
+            }
+
+            .edit-section {
+                display: flex;
+                flex-direction: column;
+                gap: 1.2rem;
+                background-color: var(--main-bg);
+                height: auto;
+                padding: 0.5rem;
+                position: absolute;
+
+                div {
+                    display: flex;
+                    flex-direction: column;
+
+                    label {
+                        font-weight: bold;
+                        margin-bottom: 5px;
+                    }
+
+                    select {
+                        width: 150px;
+                        padding: 0.2rem;
+                        border: 1px solid #ccc;
+                        border-radius: 4px;
+                    }
+
+                    div {
+                        margin-top: 1rem;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        button {
+                            width: 7rem;
+                            height: 1.5rem;
+                            font-size: 1rem;
+                            text-transform: capitalize;
+                        }
+                    }
+                }
+            }
+        }
+
+        .approve-hostel {
+            padding-top: 1rem;
+            align-items: center;
+            background-color: var(--div-bg);
+            color: var(--text-color);
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            flex-direction: column;
+            width: 70rem;
+            margin-left: 10rem;
+
+            table {
+                width: 70%;
+
+                .manage-title {
+                    background-color: var(--table-title);
+                    height: 3rem;
+                }
+
+                .user-info {
+                    background-color: var(--table-td);
+                    height: 2.5rem;
+
+                    td {
+                        text-align: center;
+                    }
+
+                    .edit-delete {
+                        display: flex;
+                        gap: 2rem;
+                        justify-content: center;
+                        align-items: center;
+                        padding-top: 0.5rem;
+
+                        button {
+                            height: 1.5rem;
+                            width: 5rem;
+                            cursor: pointer;
+                        }
+
+                        .verify {
+                            border: 1px solid green;
+                            color: green;
+                        }
+
+                        .delete {
+                            border: 1px solid red;
+                            color: red;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

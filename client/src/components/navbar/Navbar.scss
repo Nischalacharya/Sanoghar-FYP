@@ -1,0 +1,199 @@
+nav {
+    height: 4rem;
+    display: flex;
+    background-color: var(--main-bg);
+    backdrop-filter: blur(10px);
+    width: 100%;
+    top: 0;
+    position: fixed;
+    z-index: 1;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5rem;
+}
+
+nav {
+    .link {
+        color: var(--text-color);
+        text-decoration: none;
+    }
+
+    span {
+        font-family: 'Young Serif', serif;
+        display: flex;
+        cursor: pointer;
+        gap: 0.2rem;
+    }
+
+    span {
+        p {
+            padding-top: 0.2rem;
+        }
+    }
+
+    span {
+        .material-symbols-outlined {
+            font-size: 1.6rem;
+        }
+    }
+}
+
+nav {
+    ul {
+        display: flex;
+        gap: 3rem;
+        list-style: none;
+        font-family: 'Roboto', sans-serif;
+        align-items: center;
+    }
+
+    ul {
+        li {
+            cursor: pointer;
+            font-size: 1.05rem;
+            color: var(--text-color);
+        }
+
+        .toggle {
+            color: #fff !important;
+        }
+    }
+
+    ul {
+        .profile {
+            background-color: #8362e6;
+            height: auto;
+            width: auto;
+            padding: 0.3rem;
+            justify-content: center;
+            display: flex;
+            align-items: center;
+            color: #fff;
+            border-radius: 0.4rem;
+        }
+    }
+}
+
+//hostel dropdown
+.hostel-dropdown {
+    ul {
+        display: grid;
+        height: auto;
+        width: auto;
+        top: 4rem;
+        padding: 1rem;
+        gap: 1rem;
+        position: absolute;
+        border: 1px solid #8362e6;
+        border-radius: 0.5rem;
+        background-color: var(--div-bg);
+        color: var(--text-color);
+    }
+}
+
+//profile dropdown
+.profile-dropdown {
+    ul {
+        display: grid;
+        height: auto;
+        width: auto;
+        top: 4rem;
+        padding: 1rem;
+        right: 8rem;
+        gap: 1rem;
+        position: absolute;
+        border: 1px solid #8362e6;
+        border-radius: 0.5rem;
+        background-color: var(--div-bg);
+        color: var(--text-color);
+    }
+
+    ul {
+        .link {
+            color: #fff;
+            text-decoration: none;
+
+        }
+    }
+}
+
+/*cart-----------------------section----------------usersssssssss*/
+.cart {
+    height: 100vh;
+    width: 100%;
+    padding-top: 5rem;
+    background-color: var(--div-bg);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+
+    .cart-item {
+        display: flex;
+        justify-content: space-between;
+        background-color: var(--comment-section);
+        padding: 0.5rem;
+        width: 40rem;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+        div {
+            display: flex;
+
+            div {
+                display: flex;
+                flex-direction: column;
+
+                img {
+                    height: 5rem;
+                    width: 10rem;
+                    object-fit: cover;
+                    margin-right: 1rem;
+                }
+
+                h1 {
+                    color: var(--purple-color);
+                    font-size: 1.4rem;
+                    margin-bottom: 0.5rem;
+                }
+
+                .sex {
+                    background-color: green;
+                    color: #fff;
+                    height: 1.3rem;
+                    width: 4rem;
+                    border-radius: 0.1rem;
+                    border: none;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-top: 0.3rem;
+                }
+            }
+        }
+
+        .last-div {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+
+            button {
+                background-color: #8362e6;
+                height: 2rem;
+                width: 5rem;
+                font-size: 1rem;
+                padding: 0.3rem;
+                justify-content: center;
+                display: flex;
+                align-items: center;
+                color: #fff;
+                border-radius: 0.2rem;
+                border: none;
+            }
+
+            p {
+                font-weight: bold;
+            }
+        }
+    }
+}
