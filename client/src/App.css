@@ -1,0 +1,63 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Roboto', sans-serif;
+    src: url(../public/font/Roboto-Black.ttf);
+    src: url(../public/font/Roboto-BlackItalic.ttf);
+    src: url(../public/font/Roboto-Bold.ttf);
+    src: url(../public/font/Roboto-BoldItalic.ttf);
+    src: url(../public/font/Roboto-Italic.ttf);
+    src: url(../public/font/Roboto-Light.ttf);
+    src: url(../public/font/Roboto-LightItalic.ttf);
+    src: url(../public/font/Roboto-Medium.ttf);
+    src: url(../public/font/Roboto-MediumItalic.ttf);
+    src: url(../public/font/Roboto-Regular.ttf);
+    src: url(../public/font/Roboto-Thin.ttf);
+    src: url(../public/font/Roboto-ThinItalic.ttf);
+}
+
+@font-face {
+    font-family: 'Young Serif', serif;
+    src: url(../public/font/YoungSerif-Regular.ttf);
+}
+
+.dark-theme {
+    --div-bg: #16181c;
+    --main-bg: #000000;
+    --text-color: #fff;
+    --purple-color: #673de6;
+    --light-white: #2f2f2f;
+    --hostel-div: #70777d;
+    --comment-section: #3c3c3c;
+    --input-color: #333;
+    --table-td: #333;
+    --table-title: #000;
+}
+
+.light-theme {
+    --div-bg: #fff;
+    --main-bg: #f1f5f9;
+    --text-color: #000;
+    --purple-color: #673de6;
+    --light-white: #f2f2f2;
+    --hostel-div: #fff;
+    --comment-section: #f0f1f3;
+    --input-color: #ececec;
+    --table-td: #f3eded;
+    --table-title: #bbbfff;
+}
+
+html:has(.light-theme) {
+    background-color: #fff;
+}
+html:has(.dark-theme) {
+    background-color: #16181c;
+}
+
+.body {
+    padding-top: 0rem;
+}

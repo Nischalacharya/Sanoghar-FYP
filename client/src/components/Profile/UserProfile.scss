@@ -1,0 +1,133 @@
+.userProfile {
+    margin-top: 5rem;
+    height: 100vh;
+    padding: 0px 4rem;
+    width: 100%;
+
+    .dashboardWrapper {
+        border: 1px solid var(--purple-color);
+        padding: 2rem;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 4rem;
+    }
+
+    .dashboardBox {
+        min-width: 330px;
+        width: max-content;
+        height: 230px;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0 1rem;
+        // border: 1px solid var(--purple-color);
+        box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+            rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+
+        h1 {
+            font-size: 8rem;
+            color: var(--purple-color);
+        }
+
+        h3 {
+            text-align: center;
+        }
+    }
+
+    > div {
+        max-height: 17rem;
+        overflow-y: scroll;
+        margin-top: 5rem;
+        scroll-snap-type: y mandatory;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hostelFooterWrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5rem;
+        }
+
+        .basicInfoWrapper {
+            border: 1px solid var(--purple-color);
+            width: 30%;
+            border-radius: 5px;
+            margin-top: 3rem;
+            padding: 10px;
+            height: 15rem;
+            overflow-y: scroll;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
+            .basicInfo {
+                display: flex;
+                flex-direction: column;
+
+                .infogrp {
+                    h5 {
+                        font-size: 14px;
+                        color: rgb(80, 78, 78);
+                    }
+
+                    h4 {
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+
+        .hostelBanner {
+            background: rgb(235, 227, 227);
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 3rem;
+            padding: 1rem;
+            scroll-snap-align: start;
+            border-radius: 8px;
+
+            img {
+                height: 15rem;
+                border-radius: 5px;
+            }
+
+            .hostelInfo {
+                h1 {
+                    font-size: 28px;
+                    color: var(--purple-color);
+                    text-align: start;
+                }
+
+                h4 {
+                    font-size: 16px;
+                    text-align: start;
+                }
+
+                p {
+                    font-size: 12px;
+                }
+
+                .contactInfo {
+                    display: flex;
+                    flex-direction: column;
+
+                    p {
+                        height: fit-content;
+                        margin-bottom: -2px;
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+}

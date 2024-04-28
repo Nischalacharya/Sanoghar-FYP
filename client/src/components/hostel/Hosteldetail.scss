@@ -1,0 +1,719 @@
+.boys-hostel {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    background-color: var(--div-bg);
+    padding: 4rem 0;
+    font-family: "Roboto", sans-serif;
+
+    &:-webkit-scrollbar {
+        display: none;
+    }
+
+    &::-webkit-scrollbar-track {
+        display: none;
+    }
+
+    .hostel-top {
+        display: flex;
+        // justify-content: space-betw;
+        width: 100%;
+        height: 19rem;
+        background-color: var(--hostel-div);
+        padding: 1.2rem;
+        padding-inline: 8rem;
+        gap: 4rem;
+
+        .image-section {
+            display: flex;
+            gap: 1rem;
+            height: 8rem;
+            flex: 1;
+
+            img {
+                border-radius: 0.5rem;
+            }
+
+            div {
+                .hostel-img {
+                    width: 24rem;
+                    height: 8rem;
+                    object-fit: cover;
+                    cursor: pointer;
+                }
+
+                .full {
+                    height: 17rem;
+                    cursor: pointer;
+                }
+            }
+
+            .two-img {
+                display: grid;
+                gap: 1rem;
+            }
+        }
+
+        //image zoon in.....................................
+        .full-image-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+
+            .full-image-container {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .full-image {
+                    height: 90vh;
+                    width: 90%;
+                }
+
+                .close-button {
+                    position: absolute;
+                    top: -0.8rem;
+                    right: 0rem;
+                    font-size: 3rem;
+                    color: #fff;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    .wrapper-aa {
+        display: flex;
+        margin-top: -1rem;
+        // flex-direction: row-reverse;
+    }
+
+    .hostel-detail {
+        background-color: var(--div-bg);
+        color: var(--text-color);
+        width: 100%;
+        height: 80vh;
+        display: flex;
+        flex-direction: column;
+        padding-inline: 8rem;
+
+        h1 {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        h1:first-letter {
+            font-size: 2.5rem;
+            color: var(--purple-color);
+        }
+
+        .description-review {
+            display: flex;
+            gap: 3rem;
+
+            .description,
+            .reviews {
+                cursor: pointer;
+            }
+
+            .description.active {
+                color: var(--purple-color);
+                border-bottom: 2px solid var(--purple-color);
+            }
+
+            .reviews.active {
+                color: var(--purple-color);
+                border-bottom: 2px solid var(--purple-color);
+            }
+        }
+
+        .description-onclick,
+        .reviews-onclick {
+            max-width: 50rem;
+            text-align: justify;
+            isolation: isolate;
+
+            ::-webkit-scrollbar {
+                display: none;
+            }
+        }
+
+        .description-onclick {
+            flex-shrink: 0;
+            margin-top: 2rem;
+            width: max-content;
+            flex: 3;
+
+            h3 {
+                padding-top: 0.7rem;
+            }
+
+            p {
+                .fa-bed {
+                    padding-right: 0.2rem;
+                }
+            }
+
+            .btn-booking {
+                background-color: #8362e6;
+                height: auto;
+                width: auto;
+                padding: 0.3rem;
+                justify-content: center;
+                display: flex;
+                align-items: center;
+                color: #fff;
+                border-radius: 0.4rem;
+                transition: all 0.2s ease-in;
+
+                &:hover {
+                    transform: scale(1.2);
+                }
+            }
+        }
+
+        .reviews-onclick {
+            margin-top: 2rem;
+            flex: 4;
+
+            h3 {
+                padding-top: 0.7rem;
+            }
+
+            .user-review {
+                border-bottom: 1px solid #ddd;
+                padding-top: 1rem;
+
+                >div {
+                    padding-bottom: 0.8rem;
+                    display: flex;
+                    justify-content: space-between;
+
+                    >p {
+                        gap: 0.3rem;
+                        display: flex;
+                        flex-direction: column;
+                        width: 100%;
+                        position: relative;
+
+                        >div {
+                            >.user-name {
+                                color: rgb(13, 104, 13);
+                            }
+
+                            >.date {
+                                font-size: 0.9rem;
+
+                                &::before {
+                                    content: " - ";
+                                }
+                            }
+                        }
+                    }
+
+                    >div {
+                        width: 9rem;
+
+                        >.active {
+                            fill: rgb(240, 218, 24);
+                        }
+                    }
+                }
+            }
+
+            .comment-review {
+                // border: 1px dashed var(--text-color);
+                margin-top: 1rem;
+                display: flex;
+                flex-direction: column;
+                padding: 0.5rem;
+
+                p {
+                    padding-top: 0.3rem;
+                }
+
+                .star-rating {
+                    text-align: left;
+                    margin-block: 0.5rem;
+                    color: #999;
+
+                    >.star {
+                        fill: rgb(240, 218, 24);
+                    }
+                }
+
+                .comment-section {
+                    div {
+                        textarea {
+                            width: 100%;
+                            height: 8rem;
+                            background-color: var(--comment-section);
+                            outline: none;
+                            border: none;
+                            border-radius: 0.4rem;
+                            margin-top: 0.5rem;
+                            margin-bottom: 0.5rem;
+                            color: var(--text-color);
+                            padding: 0.5rem 1rem;
+                        }
+
+                        textarea::placeholder {
+                            color: var(--text-color);
+                            font-size: 1rem;
+                        }
+                    }
+
+                    .btn-submit {
+                        display: flex;
+                        justify-content: start;
+                        margin-bottom: 1rem;
+
+                        button {
+                            height: 2rem;
+                            width: 8rem;
+                            font-size: 1rem;
+                            background-color: var(--purple-color);
+                            color: #fff;
+                            border: none;
+                            border-radius: 0.3rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.booking-section {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    font-family: "Roboto", sans-serif;
+    color: var(--text-color);
+
+    >.container {
+        width: min-content;
+        height: 70%;
+        background-color: white;
+        padding: 1rem 2rem;
+        gap: 1rem;
+        color: var(--text-color);
+        position: relative;
+        padding: 2rem 1rem;
+        border-radius: 1rem 0rem 0rem 1rem;
+        z-index: 2;
+        overflow: auto;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        h2 {
+            font-size: 1.2rem !important;
+            font-weight: 600;
+        }
+
+        >.close-button {
+            position: absolute;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 6px;
+            right: 1rem;
+            top: 1rem;
+            background-color: hsl(0, 0%, 97%);
+            margin: 0;
+            display: grid;
+            place-items: center;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        >div {
+            background-color: white;
+            color: var(--text-color);
+            display: flex;
+            margin: 1rem 0rem;
+            flex-direction: column;
+            gap: 0.5rem;
+
+            >label {
+                display: block;
+                margin-right: 0.5rem;
+                font-weight: 600;
+                font-size: 0.9rem;
+
+                >span {
+                    display: block;
+                }
+            }
+
+            >input {
+                font-size: 0.8rem;
+                height: min-content;
+                width: 320px;
+                border-radius: 6px;
+                border: 1px solid #ccc;
+                padding: 0.5rem 1rem;
+            }
+        }
+
+        >button {
+            position: sticky;
+            right: -0.3rem;
+            bottom: -1rem;
+            margin-top: 0.6rem;
+            width: 110%;
+            height: 2.5rem;
+            font: 1.3rem "Roboto", sans-serif;
+        }
+    }
+}
+
+//boys hostel---------------------------
+.hostel-boys {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    background-color: var(--div-bg);
+    padding-top: 4rem;
+    font-family: "Roboto", sans-serif;
+    color: var(--text-color);
+
+    .hostel-filter {
+        position: fixed;
+        left: 9rem;
+        top: 6rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: var(--main-bg);
+        border-radius: 5px;
+        height: auto;
+        width: 25%;
+        border-top: 2px solid var(--purple-color);
+        border-bottom: 2px solid var(--purple-color);
+        padding: 1rem;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+
+        .searchBTN {
+            width: 100%;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .filterGroup {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            gap: 2px;
+            border: 1px solid var(--text-color);
+            border-radius: 5px;
+            padding: 10px;
+
+            label {
+                font-size: 16px;
+                font-weight: 500;
+            }
+
+            .genderButtons {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+        }
+
+        .filterGroupGender {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            gap: 5px;
+            border: 1px solid var(--text-color);
+            border-radius: 5px;
+            padding: 10px;
+
+            label {
+                font-weight: 500;
+            }
+        }
+
+        .genderGroup {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 20px;
+
+            .genderButtons {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+        }
+
+        .option-value {
+            display: grid;
+
+            div {
+                display: flex;
+                gap: 0.5rem;
+            }
+        }
+
+        >div {
+            width: 100%;
+            display: flex;
+            justify-content: left;
+            margin: 1rem 0;
+
+            >label {
+                width: 25%;
+            }
+        }
+
+        .star-rating {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            margin-top: 0.5rem;
+            border: 1px solid var(--text-color);
+            border-radius: 5px;
+            padding: 10px;
+
+            .starGroupp {
+                display: flex;
+                flex-direction: row;
+
+                >.star {
+                    fill: rgb(240, 218, 24);
+                }
+            }
+        }
+
+        >button {
+            height: 2rem;
+            width: 8rem;
+            font-size: 1rem;
+            background-color: var(--purple-color);
+            color: #fff;
+            border: none;
+            border-radius: 0.3rem;
+        }
+    }
+
+    .hostelWrapper {
+        flex: 1;
+        width: 62%;
+        margin-top: 1rem;
+    }
+
+    .hostel-boys-item {
+        height: auto;
+        // background-color: var(--comment-section);
+        box-shadow: 0px 0px 8px 0px #ddd;
+        width: 55rem;
+        padding: 1rem;
+        margin-top: 1rem;
+        display: flex;
+        gap: 2rem;
+        margin-right: 5rem;
+        border-radius: 16px;
+        // border: 2px solid var(--purple-color);
+
+        div {
+            img {
+                height: 14rem;
+                width: 16rem;
+                object-fit: cover;
+                border-radius: 10px;
+                background-color: #888;
+                display: grid;
+                place-items: center;
+                font-size: 1.5rem;
+                text-align: center;
+                font-weight: 600;
+                color: white;
+                // font-style: italic;
+            }
+        }
+
+        .hostel-highlight {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30rem;
+
+            .highlight-one {
+                display: flex;
+                flex-direction: column;
+
+                // gap: 0.5rem;
+                h2 {
+                    color: var(--purple-color);
+                    font-size: 1.4rem;
+                    margin-bottom: 0.5rem;
+                }
+
+                .address-hostel {
+                    margin-bottom: 0.5rem;
+                    font-size: 0.9rem;
+                }
+
+                .hostel-offer {
+                    font-size: 0.8rem;
+                    font-weight: bold;
+                }
+
+                .sex {
+                    background-color: green;
+                    color: #fff;
+                    height: 1.5rem;
+                    width: 4rem;
+                    border-radius: 5px;
+                    border: none;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .gender {
+                    background-color: green;
+                    color: #fff;
+                    height: 1.3rem;
+                    width: 4rem;
+                    border-radius: 0.1rem;
+                    border: none;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-top: 0.5rem;
+                }
+            }
+
+            .highlight-two {
+                text-align: right;
+                position: relative;
+
+                .ratings {
+                    display: flex;
+                    justify-content: space-between;
+
+                    .total-rating {
+                        font-size: 1rem;
+                        font-weight: bold;
+                        padding-left: 0.5rem;
+                    }
+
+                    .rating-average {
+                        background-color: var(--purple-color);
+                        height: 1.5rem;
+                        color: #fff;
+                        width: 1.5rem;
+                        font-size: bold;
+                        justify-content: center;
+                        align-items: center;
+                        display: flex;
+                    }
+                }
+
+                .amount {
+                    padding-top: 3rem;
+
+                    .rs-amount {
+                        font-size: 1.3rem;
+                        font-weight: bold;
+                    }
+
+                    .tax-amt {
+                        font-size: 0.8rem;
+                    }
+                }
+
+                .btn-see-more {
+                    position: absolute;
+                    bottom: 1rem;
+
+                    button {
+                        background-color: var(--purple-color);
+                        color: #fff;
+                        width: 12rem;
+                        height: 2.5rem;
+                        border: none;
+                        border-radius: 0.3rem;
+                        font-size: 1rem;
+
+                        .link {
+                            color: #fff;
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .pagination {
+        width: 100%;
+        justify-content: center;
+        padding: 0 20rem 0 50rem;
+        margin: 2rem 0;
+
+        ul {
+            display: flex;
+            gap: 1rem;
+
+            li {
+                list-style-type: none;
+
+                button {
+                    height: 2rem;
+                    width: 2rem;
+                    border-radius: 50%;
+                    border: none;
+                    background-color: #8362e6;
+                    color: #fff;
+                    font-weight: bold;
+                    cursor: pointer;
+
+                    &.active {
+                        background-color: #6722b5;
+                    }
+                }
+            }
+
+            button {
+                background-color: #f3f4f9;
+                border: none;
+                cursor: pointer;
+                width: 10rem;
+                font-weight: bold;
+                padding: 0 0.3rem;
+                border-radius: 0.2rem;
+            }
+        }
+    }
+}
+
+.book-now {
+    display: block;
+    margin-top: 1rem;
+}

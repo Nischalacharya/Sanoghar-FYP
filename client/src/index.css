@@ -1,0 +1,3 @@
+*:not(.icon, .fa-classic, .fa-regular, .fa-solid, .far, .fas, .fa-brands) {
+    font-family: "Poppins", sans-serif !important;
+}

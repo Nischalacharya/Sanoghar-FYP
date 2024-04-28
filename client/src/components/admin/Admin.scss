@@ -1,0 +1,643 @@
+.admin {
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--div-bg);
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  .admin-dashboard {
+    height: 100vh;
+    width: 15vw;
+    // position: fixed;
+    background-color: var(--main-bg);
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    // left: 0;
+    text-align: center;
+
+    span {
+      display: flex;
+      padding-left: 1rem;
+
+      span {
+        font-size: 1.9rem;
+        font-weight: bold;
+      }
+
+      p {
+        padding-top: 0.2rem;
+        font-size: 1.3rem;
+        font-family: "Young Serif", serif;
+      }
+    }
+
+    .dashboard-link {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-top: 3rem;
+
+      div {
+        height: 2.5rem;
+        width: 11rem;
+        justify-content: flex-start;
+        align-items: center;
+        display: flex;
+        border-radius: 0.2rem;
+        cursor: pointer;
+        align-items: center;
+        gap: 1rem;
+        padding-left: 5px;
+
+        p {
+          padding-top: 1rem;
+          text-align: left;
+        }
+      }
+
+      .active {
+        background-color: var(--purple-color);
+        color: #fff;
+      }
+    }
+  }
+
+  .dashboard-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+
+    .admin-navbar {
+      width: 100%;
+      background-color: var(--main-bg);
+      text-align: center;
+      position: static;
+      height: 4rem;
+      top: 0;
+      right: 0;
+      color: #000;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 2rem;
+      align-items: center;
+
+      .dashboard-title {
+
+        // padding-left: 14rem;
+        .fa-user-tie {
+          font-size: 1.3rem;
+          padding-right: 0.6rem;
+        }
+      }
+
+      button {
+        height: 2rem;
+        width: 6rem;
+        border: none;
+        background-color: #e6e6e6;
+        border-radius: 0.3rem;
+      }
+
+      button:hover {
+        background-color: var(--purple-color);
+        color: #fff;
+      }
+    }
+
+    .adminDashboard {
+      width: 100%;
+      padding: 2rem 4rem;
+
+      .adminWrapper {
+        border: 1px solid var(--purple-color);
+        padding: 20px;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        gap: 4rem;
+      }
+
+      .adminBox {
+        width: 240px;
+        height: 200px;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        // border: 1px solid var(--purple-color);
+        box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+          rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+
+        h1 {
+          font-size: 3rem;
+          color: var(--purple-color);
+        }
+
+        h3 {
+          text-align: center;
+        }
+      }
+    }
+
+    .chartWrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 2rem;
+      border-radius: 5px;
+      border: 1px solid var(--purple-color);
+    }
+
+    .pieChart {
+      width: 500px;
+      height: 350px;
+      padding: 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .manage-user {
+      padding-top: 4rem;
+      align-items: center;
+      background-color: var(--div-bg);
+      color: var(--text-color);
+      font-family: "Roboto", sans-serif;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      // margin-left: 15rem;
+      overflow-y: scroll;
+
+      table {
+        width: 90%;
+
+        .manage-title {
+          background-color: var(--purple-color);
+          height: 3.5rem;
+          color: #fff;
+          text-align: center;
+        }
+
+        .user-info {
+          background-color: var(--table-td);
+          height: 3rem;
+
+          td {
+            text-align: center;
+          }
+
+          &:nth-child(odd) {
+            background-color: #f0f0f0;
+          }
+
+          &:nth-child(even) {
+            background-color: #e6e6e6;
+          }
+
+          .edit-delete {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            align-items: center;
+            padding-top: 0.5rem;
+
+            button {
+              border: none;
+              background-color: transparent;
+            }
+
+            .fa-solid {
+              font-size: 1.1rem;
+            }
+          }
+        }
+      }
+
+      .edit-section {
+        display: grid;
+        grid-template-columns: repeat(2, 4fr);
+        gap: 1.2rem;
+        background-color: var(--main-bg);
+        height: auto;
+        padding: 0.5rem;
+        position: absolute;
+        padding: 1rem;
+        width: 40rem;
+        border-radius: 5px;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
+        .modelBtn {
+          display: flex;
+          justify-content: space-between;
+          flex-direction: row;
+
+          .cancelBtn {
+            background-color: rgb(210, 210, 210);
+            border: none;
+            text-transform: capitalize;
+            height: 3rem;
+            width: 8rem;
+            font-size: 1rem;
+            border-radius: 5px;
+          }
+
+          .saveBtn {
+            background-color: green;
+            border: none;
+            color: #fff;
+            text-transform: capitalize;
+            height: 3rem;
+            font-size: 1rem;
+            width: 8rem;
+            border-radius: 5px;
+          }
+        }
+
+        div {
+          display: flex;
+          flex-direction: column;
+
+          label {
+            font-weight: bold;
+            margin-bottom: 5px;
+          }
+
+          input {
+            width: 17rem;
+            padding: 10px;
+            border: 1px solid var(--text-color);
+            border-radius: 5px;
+            background: transparent;
+            outline: none;
+            color: var(--text-color);
+            font-size: 1rem;
+          }
+
+          select {
+            width: 17rem;
+            padding: 10px;
+            border: 1px solid var(--text-color);
+            border-radius: 5px;
+            background: transparent;
+            outline: none;
+            color: var(--text-color);
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+
+    .approve-hostel {
+      padding-top: 6rem;
+      align-items: center;
+      background-color: var(--div-bg);
+      color: var(--text-color);
+      font-family: "Roboto", sans-serif;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      // margin-left: 15rem;
+      overflow-y: scroll;
+
+      table {
+        width: 90%;
+
+        .manage-title {
+          background-color: var(--purple-color);
+          height: 3.5rem;
+          color: #fff;
+          text-align: center;
+        }
+
+        .user-info {
+          background-color: var(--table-td);
+          height: 2.5rem;
+
+          td {
+            text-align: center;
+          }
+
+          &:nth-child(odd) {
+            background-color: #f0f0f0;
+          }
+
+          &:nth-child(even) {
+            background-color: #e6e6e6;
+          }
+
+          .edit-delete {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            align-items: center;
+            padding-top: 0.5rem;
+
+            button {
+              height: 1.5rem;
+              width: 5rem;
+              cursor: pointer;
+            }
+
+            .verify {
+              border: 1px solid green;
+              color: green;
+            }
+
+            .delete {
+              border: 1px solid red;
+              color: red;
+            }
+          }
+        }
+      }
+
+      >.hostel-detail-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgb(0, 0, 0, 0.5);
+        backdrop-filter: blur(10px);
+        z-index: 5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        >.hostel-detail {
+          width: 60rem;
+          height: max-content;
+          background-color: var(--main-bg);
+          position: relative;
+          border-radius: 5px;
+          padding: 2rem 2rem 4rem 2rem;
+
+          >div:nth-child(1) {
+            margin-right: 3rem;
+            width: 65%;
+
+            .scrollable-x {
+              overflow: scroll;
+
+              &::-webkit-scrollbar {
+                display: none;
+              }
+            }
+
+            >i {
+              position: absolute;
+              right: 1rem;
+              top: 1rem;
+              transform: scale(1.5);
+              cursor: pointer;
+            }
+
+            >div {
+              display: flex;
+
+              >label {
+                width: 20%;
+              }
+
+              >span {
+                width: 80%;
+              }
+            }
+          }
+
+          >div:nth-child(2) {
+            width: max-content;
+            overflow-y: scroll;
+            height: max-content;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+
+            &::-webkit-scrollbar {
+              display: none;
+            }
+
+            >.image-container {
+              height: max-content;
+              max-height: 31rem;
+
+              >img {
+                width: 100%;
+                height: 10rem;
+                border: 5px solid rgb(207, 207, 207);
+                border-radius: 10px;
+              }
+            }
+          }
+
+          >button {
+            position: absolute;
+            bottom: 1rem;
+            width: 6rem;
+          }
+
+          >.approve {
+            left: 40%;
+          }
+
+          >.deny {
+            left: 52%;
+          }
+        }
+      }
+    }
+
+    .payment-report {
+      padding-top: 6rem;
+      align-items: center;
+      background-color: var(--div-bg);
+      color: var(--text-color);
+      font-family: "Roboto", sans-serif;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      // margin-left: 15rem;
+
+      table {
+        width: 90%;
+
+        .manage-title {
+          background-color: var(--purple-color);
+          height: 3.5rem;
+          color: #fff;
+          text-align: center;
+        }
+
+        .payment-info {
+          background-color: var(--table-td);
+          height: 3rem;
+
+          td {
+            text-align: center;
+          }
+
+          &:nth-child(odd) {
+            background-color: #f0f0f0;
+          }
+
+          &:nth-child(even) {
+            background-color: #e6e6e6;
+          }
+
+          .edit-delete {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            align-items: center;
+            padding-top: 0.5rem;
+
+            button {
+              height: 1.5rem;
+              width: 5rem;
+              cursor: pointer;
+            }
+
+            .verify {
+              border: 1px solid green;
+              color: green;
+            }
+
+            .delete {
+              border: 1px solid red;
+              color: red;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.userProfile {
+  width: 80%;
+  margin-top: 5rem;
+  height: 100vh;
+  padding: 0px 4rem;
+
+  .dashboardWrapper {
+    border: 1px solid var(--purple-color);
+    padding: 20px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+  }
+
+  .dashboardBox {
+    width: 300px;
+    height: 250px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // border: 1px solid var(--purple-color);
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+      rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+
+    h1 {
+      font-size: 8rem;
+      color: var(--purple-color);
+    }
+  }
+
+  .hostelFooterWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+  }
+
+  .basicInfoWrapper {
+    border: 1px solid var(--purple-color);
+    width: 30%;
+    border-radius: 5px;
+    margin-top: 3rem;
+    padding: 10px;
+
+    .basicInfo {
+      display: flex;
+      flex-direction: column;
+
+      .infogrp {
+        h5 {
+          font-size: 14px;
+          color: rgb(80, 78, 78);
+        }
+
+        h4 {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
+  .hostelBanner {
+    background: rgb(235, 227, 227);
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    // height: 15rem;
+    margin-top: 3rem;
+    padding: 1rem;
+
+    img {
+      height: 15rem;
+      border-radius: 5px;
+    }
+
+    .hostelInfo {
+      h1 {
+        font-size: 28px;
+        text-align: center;
+        color: var(--purple-color);
+      }
+
+      h4 {
+        font-size: 16px;
+        text-align: center;
+      }
+
+      p {
+        font-size: 12px;
+      }
+
+      .contactInfo {
+        display: flex;
+        flex-direction: column;
+
+        p {
+          height: fit-content;
+          margin-bottom: -2px;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+
+
+  .scrollable-y {
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}

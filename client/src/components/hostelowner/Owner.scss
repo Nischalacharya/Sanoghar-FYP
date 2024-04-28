@@ -1,0 +1,204 @@
+.hostel-owner {
+  height: 100%;
+  width: 100%;
+  background-color: var(--div-bg);
+  padding-top: 4rem;
+  font-family: "Roboto", sans-serif;
+  color: var(--text-color);
+
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  .owner-dashboard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem 6rem;
+
+    div {
+      p {
+        font-size: 2rem;
+        text-align: center;
+      }
+    }
+  }
+
+  .btnAdd {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+
+    button {
+      width: 8rem;
+      height: 2.5rem;
+      font-size: 1rem;
+      border-radius: 0.2rem;
+      border: none;
+      background-color: var(--purple-color);
+      color: #fff;
+      justify-self: flex-end;
+      margin-right: 4.5rem;
+    }
+  }
+
+  .hostel-form-bg {
+    background-color: rgb(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 98.9vw;
+    height: 100%;
+    overflow: hidden !important;
+    z-index: 2;
+    backdrop-filter: blur(10px);
+
+    .hostel-form {
+      position: absolute;
+      height: 39rem;
+      width: 70%;
+      background-color: var(--main-bg);
+      margin-left: 12rem;
+      display: flex;
+      flex-direction: column;
+      padding: 2rem 1rem;
+      top: 3rem;
+      overflow-y: scroll;
+      border-radius: 10px;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      .top-section {
+        display: flex;
+        height: 90%;
+        justify-content: space-around;
+
+        div {
+          display: flex;
+          width: 28rem;
+          flex-direction: column;
+          gap: 0.3rem;
+          position: relative;
+
+          &::-webkit-scrollbar {
+            display: none;
+          }
+
+          >.div-button-image {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+          }
+        }
+      }
+
+      .bottom-section {
+        position: absolute;
+        bottom: 1.5rem;
+        left: 45%;
+
+        button {
+          height: 2.5rem;
+          background-color: var(--purple-color);
+          border: none;
+          border-radius: 0.2rem;
+          color: #fff;
+          width: 10rem;
+          font-size: 1rem;
+        }
+      }
+
+      >span {
+        position: absolute;
+        font-size: 2rem;
+        right: 1rem;
+        top: 0.5rem;
+        cursor: pointer;
+        color: var(--text-color);
+      }
+
+      >.popupmap {
+        position: fixed;
+        top: 0%;
+        left: 0%;
+        width: 100vw;
+        z-index: 5;
+        height: 100vh;
+        background-color: rgb(0, 0, 0, 0.5);
+        backdrop-filter: blur(10px);
+
+        >.map {
+          position: absolute;
+          left: 20%;
+          top: 10%;
+
+          >.close {
+            width: 1.5rem;
+            height: 1.5rem;
+            background-color: black;
+            color: white;
+            float: right;
+          }
+        }
+      }
+    }
+  }
+
+  .hostel-info {
+    height: 89%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    table {
+      width: 80%;
+      height: max-content;
+      padding: 0 5rem;
+      border: 1px solid var(--text-color);
+      border-radius: 5px;
+
+      .table-title {
+        background-color: var(--table-title);
+        height: 3rem;
+
+        th {
+          width: 10rem;
+        }
+      }
+
+      .table-data {
+        // background-color: var(--table-td);
+        height: 2.5rem;
+        text-align: center;
+
+        .description-cell {
+          overflow-y: auto;
+          max-width: 15rem;
+          max-height: 3rem;
+
+          &::-webkit-scrollbar {
+            display: none;
+          }
+        }
+
+        >.location {
+          width: 20%;
+        }
+      }
+    }
+  }
+}
+
+.actionBTn {
+  height: 2rem;
+  width: 5rem;
+  background-color: var(--purple-color);
+  border-radius: 0.5rem;
+  color: white;
+  border: none;
+  font-size: 1rem;
+}

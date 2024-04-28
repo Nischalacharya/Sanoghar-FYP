@@ -1,0 +1,68 @@
+.Map {
+    overflow: hidden;
+
+    .maplibregl-popup-close-button {
+        right: 1rem;
+        top: 0.5rem;
+        aspect-ratio: 1 / 1;
+        display: block;
+        height: 1rem;
+        width: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .maplibregl-popup-content {
+        border-radius: 1rem;
+        padding: 1rem;
+    }
+
+    .card {
+        width: 250px;
+        // height: 250px;
+        display: flex;
+        flex-direction: column;
+        border: 0;
+        gap: 0.5rem;
+        font-weight: 500;
+
+        span {
+            font-weight: 600;
+        }
+
+        label {
+            width: max-content;
+            color: tomato;
+            font-size: 13px;
+            margin: 3px 0;
+        }
+
+        .place {
+            font-size: 14px;
+        }
+
+        .review {
+            font-size: 14px;
+        }
+
+        .rating {
+            > * {
+                color: gold;
+                transform: translate(0, 5px);
+            }
+        }
+
+        .username {
+            font-size: 14px;
+        }
+
+        .date {
+            font-size: 12px;
+        }
+    }
+
+    .d-none {
+        display: none;
+    }
+}
