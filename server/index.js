@@ -38,6 +38,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/assets", express.static("public/assets"));
 /* File Storage */
 
+//photo  store
+
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, "public/assets");

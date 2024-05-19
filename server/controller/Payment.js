@@ -3,7 +3,7 @@ import Payment from "../model/Payment.js";
 import { Stripe } from "stripe";
 import nodemailer from "nodemailer";
 const stripe = Stripe(
-    "sk_test_51OhkzYEE46R4eqNzGv8rBKx239kfmEqhmFQCjnSENUojhw5wcRvO2clghPC2JcaQnjncr2lTPxn6KFGxXaWHSE7P00CltTd6v7"
+    "sk_test_51OhkzYEE46R4eqNzGOBMUncELbft7ZqDwax6XSorhZo460dwrdJ5QPv0qRotoqzcUz38TDOQV6IWmYvrAgbHyOmu007i9jD00w"
 );
 
 export const GetPayment = async (req, res) => {
@@ -79,7 +79,7 @@ export const CreatePayment = async (req, res) => {
         let hostel = await Hostel.findOne({ title: req.body.hostel });
         hostel = filterHostel(req.body.room, hostel);
         await Hostel.findByIdAndUpdate(hostel._id, {
-            ...hostel
+            ...hostel,
         });
 
         res.status(200).json({ success: true, hostel: hostel });
@@ -88,13 +88,13 @@ export const CreatePayment = async (req, res) => {
     }
 };
 const filterHostel = (room1, hostel) => {
-    Object.keys(room1).map(floorIndex => {
-        Object.keys(room1?.[floorIndex]).map(roomIndex => {
+    Object.keys(room1).map((floorIndex) => {
+        Object.keys(room1?.[floorIndex]).map((roomIndex) => {
             delete hostel?.floor?.[floorIndex]?.[roomIndex];
-        })
+        });
     });
     return hostel;
-}
+};
 const sendPaymentEmail = async (data, res) => {
     try {
         let transporter = nodemailer.createTransport({
@@ -151,6 +151,6 @@ export const sendPaymentReminderEmail = async (data) => {
             text: `Dear ${data.name},\n\nYour hostel booking is about to expire in ${data.days} Days .Please ensure your payment is completed soon to avoid any inconvenience.\n\nThank you,\nSanoghar Team`,
         };
 
-        transporter.sendMail(mailOptions, function (error, info) { });
-    } catch (error) { }
+        transporter.sendMail(mailOptions, function (error, info) {});
+    } catch (error) {}
 };

@@ -8,7 +8,7 @@ import StarIcon from "@mui/icons-material/Star";
 import HostelImg from "../../assets/img/HostelImg.jpg";
 import MultiRangeSlider from "multi-range-slider-react";
 import { GetAllHostelReview } from "../../function/HostelReview";
-import { toast } from 'react-toastify'
+import { toast } from "react-toastify";
 
 export const Hostel = () => {
     const navigate = useNavigate();
@@ -30,7 +30,7 @@ export const Hostel = () => {
     const getAllHostelReview = async () => {
         const res = await GetAllHostelReview();
         setHostelReviews(res);
-    }
+    };
 
     const seeMoreHandler = (e, hostel) => {
         e.preventDefault();
@@ -39,39 +39,49 @@ export const Hostel = () => {
     };
 
     const filterHandler = () => {
-        console.log(filter)
-        const filteredHostels = hostels.filter(hostel => {
+        console.log(filter);
+        const filteredHostels = hostels.filter((hostel) => {
             if (filter.minPrice && filter.maxPrice) {
-                const floorPrices = Object.values(hostel.floor).flatMap(room => Object.values(room).map(r => parseInt(r.price)));
+                const floorPrices = Object.values(hostel.floor).flatMap(
+                    (room) => Object.values(room).map((r) => parseInt(r.price))
+                );
                 const minPrice = Math.min(...floorPrices);
                 const maxPrice = Math.max(...floorPrices);
 
                 if (filter.minPrice > maxPrice || filter.maxPrice < minPrice) {
                     return false;
                 }
-
             }
-            if (filter.sex && filter.sex.length > 0 && !filter.sex.includes(hostel.sex)) {
+            if (
+                filter.sex &&
+                filter.sex.length > 0 &&
+                !filter.sex.includes(hostel.sex)
+            ) {
                 return false;
             }
             if (filter.floor && filter.floor.length > 0) {
                 const hostelFloors = Object.keys(hostel.floor);
-                if (!filter.floor.some(floor => hostelFloors.includes(floor))) {
+                if (
+                    !filter.floor.some((floor) => hostelFloors.includes(floor))
+                ) {
                     return false;
                 }
             }
             if (filter.room && filter.room.length > 0) {
-                const hostelRooms = Object.values(hostel.floor).flatMap(room => Object.keys(room));
-                if (!filter.room.some(room => hostelRooms.includes(room))) {
+                const hostelRooms = Object.values(hostel.floor).flatMap(
+                    (room) => Object.keys(room)
+                );
+                if (!filter.room.some((room) => hostelRooms.includes(room))) {
                     return false;
                 }
             }
-            const reviews = hostelReviews.filter(review => review.hostel === hostel.title)
+            const reviews = hostelReviews.filter(
+                (review) => review.hostel === hostel.title
+            );
 
             let avg = 0;
-            reviews.map(hostel => avg += hostel.rating);
+            reviews.map((hostel) => (avg += hostel.rating));
             const avgRating = Math.floor(avg / reviews.length);
-
 
             if (filter.rating && avgRating != filter.rating) {
                 return false;
@@ -85,27 +95,32 @@ export const Hostel = () => {
     };
     const genderChangeHandler = (e) => {
         const { value, checked } = e.target;
-        setFilter(prevFilter => ({
+        setFilter((prevFilter) => ({
             ...prevFilter,
-            sex: checked ? [...(prevFilter.sex || []), value] : prevFilter.sex.filter(item => item !== value)
+            sex: checked
+                ? [...(prevFilter.sex || []), value]
+                : prevFilter.sex.filter((item) => item !== value),
         }));
-        if (Object.keys(filter.sex).length === 0)
-            delete filter.sex
+        if (Object.keys(filter.sex).length === 0) delete filter.sex;
     };
 
     const bedChangeHandler = (e) => {
         const { value, checked } = e.target;
-        setFilter(prevFilter => ({
+        setFilter((prevFilter) => ({
             ...prevFilter,
-            room: checked ? [...(prevFilter.room || []), value] : prevFilter.room.filter(item => item !== value)
+            room: checked
+                ? [...(prevFilter.room || []), value]
+                : prevFilter.room.filter((item) => item !== value),
         }));
     };
 
     const floorChangeHandler = (e) => {
         const { value, checked } = e.target;
-        setFilter(prevFilter => ({
+        setFilter((prevFilter) => ({
             ...prevFilter,
-            floor: checked ? [...(prevFilter.floor || []), value] : prevFilter.floor.filter(item => item !== value)
+            floor: checked
+                ? [...(prevFilter.floor || []), value]
+                : prevFilter.floor.filter((item) => item !== value),
         }));
     };
 
@@ -117,7 +132,9 @@ export const Hostel = () => {
     const hostelsPerPage = 5;
     const indexOfLastHostel = currentPage * hostelsPerPage;
     const indexOfFirstHostel = indexOfLastHostel - hostelsPerPage;
-    const currentHostels = isFilter ? filteredHostels.slice(indexOfFirstHostel, indexOfLastHostel) : hostels.slice(indexOfFirstHostel, indexOfLastHostel);
+    const currentHostels = isFilter
+        ? filteredHostels.slice(indexOfFirstHostel, indexOfLastHostel)
+        : hostels.slice(indexOfFirstHostel, indexOfLastHostel);
 
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
     return (
@@ -134,12 +151,16 @@ export const Hostel = () => {
                             max={15000}
                             maxValue={15000}
                             onInput={(e) => {
-                                setFilter(prev => ({ ...prev, minPrice: e.minValue, maxPrice: e.maxValue }));
+                                setFilter((prev) => ({
+                                    ...prev,
+                                    minPrice: e.minValue,
+                                    maxPrice: e.maxValue,
+                                }));
                             }}
                         />
-                        <div className="d-flex justify-content-between" >
-                            <div>min :  {filter.minPrice}</div>
-                            <div>max :  {filter.maxPrice}</div>
+                        <div className="d-flex justify-content-between">
+                            <div>min : {filter.minPrice}</div>
+                            <div>max : {filter.maxPrice}</div>
                         </div>
                     </div>
                     <div className="filterGroupGender">
@@ -162,6 +183,15 @@ export const Hostel = () => {
                                     onChange={(e) => genderChangeHandler(e)}
                                 />
                                 <label>Girls</label>
+                            </div>
+                            <div className="genderButtons">
+                                <input
+                                    type="checkbox"
+                                    value="Others"
+                                    checked={filter.sex?.includes("Others")}
+                                    onChange={(e) => genderChangeHandler(e)}
+                                />
+                                <label>Others</label>
                             </div>
                         </div>
                     </div>
@@ -274,8 +304,14 @@ export const Hostel = () => {
                                     className={
                                         i < hoverStar ? "star" : "inlinestar"
                                     }
-                                    onClick={() => { filter.rating === i + 1 ? delete filter.rating : setFilter(prev => ({ ...prev, rating: i + 1 })) }
-                                    }
+                                    onClick={() => {
+                                        filter.rating === i + 1
+                                            ? delete filter.rating
+                                            : setFilter((prev) => ({
+                                                  ...prev,
+                                                  rating: i + 1,
+                                              }));
+                                    }}
                                     onMouseEnter={() => setHoverStar(i + 1)}
                                     onMouseLeave={() =>
                                         setHoverStar(filter.rating)
@@ -298,7 +334,7 @@ export const Hostel = () => {
                                 <img
                                     src={
                                         hostel.imagepath1 &&
-                                            hostel.imagepath1 !== "undefined"
+                                        hostel.imagepath1 !== "undefined"
                                             ? `http://localhost:5000/assets/${hostel.imagepath1}`
                                             : HostelImg
                                     }
